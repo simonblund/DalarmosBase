@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/self-edit', function (){
+    return view('settings.selfedit');
+});
+Route::patch('/user/edit/{id}', 'Auth\RegisterController@selfedit');
