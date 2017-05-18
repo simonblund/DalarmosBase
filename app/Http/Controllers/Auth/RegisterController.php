@@ -48,9 +48,22 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',     
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'vacancy' => 'required|string|max:10',
+            'driverslicence' => 'required|string|max:10',
+            'primary_phone' => 'required|string|max:255',
+            'secondaty_phone' => 'nullable|string|max:255',
+            'telegram_id' => 'nullable|string|max:255',
+            'street_address' => 'nullable|string|max:255',
+            'city_address' => 'nullable|string|max:255',
+            'postcode_address' => 'nullable|string|max:255',
+            'country_address' => 'nullable|string|max:255',
+            'birthday' => 'nullable|date|max:255',
+            'fire_department' => 'sometimes|required|string|max:255',
+            'is_admin' => 'sometimes|required|boolean|max:255',
+            'password' => 'sometimes|required|string|min:6|confirmed',
         ]);
     }
 
@@ -63,8 +76,21 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'vacancy' => $data['vacancy'],
+            'driverslicence' => $data['driverslicence'],
+            'primary_phone' => $data['primary_phone'],
+            'secondary_phone' => $data['secondary_phone'],
+            'telegram_id' => $data['telegram_id'],
+            'street_address' => $data['street_address'],
+            'city_address' => $data['city_address'],
+            'postcode_address' => $data['postcode_address'],
+            'country_address' => $data['country_address'],
+            'birthday' => $data['birthday'],
+            'fire_department' => $data['fire_department'],
+            'is_admin' => $data['is_admin'],
             'password' => bcrypt($data['password']),
         ]);
     }

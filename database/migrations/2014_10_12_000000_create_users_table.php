@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('driverslicence');
             $table->string('primary_phone');
             $table->string('secondary_phone')->nullable();
-            $table->string('telegram_id');
+            $table->string('telegram_id')->nullable();
             $table->string('street_address')->nullable();
             $table->string('city_address')->nullable();
             $table->string('postcode_address')->nullable();
