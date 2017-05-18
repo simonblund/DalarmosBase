@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'vacancy', 'driverslicence', 'primary_phone', 'secondary_phone', 'telegram_id', 'street_address', 'city_address', 'postcode_address', 'country_address', 'birthday', 'fire_department', 'is_admin', 'password',
     ];
 
     /**
@@ -24,6 +24,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'birthday',
     ];
+
+    public function isAdmin()
+{
+    return $this->is_admin; // this looks for an admin column in your users table
+}
 }

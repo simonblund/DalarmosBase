@@ -57,7 +57,7 @@
                         @else
                             <li class="nav-item dropdown ">
                                 <a href="#" class="dropdown-toggle text-primary-color" data-toggle="dropdown" role="button"  aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                     {{ Auth::user()->first_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown" role="menu">
