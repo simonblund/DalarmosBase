@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
-                            <label for="birthday" class="col-md-4 control-label">Land</label>
+                            <label for="birthday" class="col-md-4 control-label">Födelsedag</label>
 
                             <div class="col-md-6">
                                 <input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}" autofocus>
@@ -206,7 +206,13 @@
                             </div>
                         </div>
                     </form>
-                   
+                   <div>
+                       <ul>
+                           @foreach($errors->all() as $error)
+                           <li> {{$error}}</li>
+                           @endforeach
+                       </ul>
+                   </div>
                 </div>
             </div>
         </div>

@@ -29,17 +29,16 @@ class StoreUserSelfUpdate extends FormRequest
     public function rules()
     {
         $user = User::find($this->route('id'));
-        return [
+        
+        return[
                 
             'email' => [
                 'required',
                 'string',
                 'email',
                 'max:255',
-                Rule::unique('users')->ignore($user->id),
                 ],
             
-            'driverslicence' => 'required|string|max:10',
             'primary_phone' => 'required|string|max:255',
             'secondaty_phone' => 'nullable|string|max:255',
             'telegram_id' => 'nullable|string|max:255',
@@ -48,9 +47,7 @@ class StoreUserSelfUpdate extends FormRequest
             'postcode_address' => 'sometimes|nullable|string|max:255',
             'country_address' => 'sometimes|nullable|string|max:255',
             'birthday' => 'sometimes|nullable|date|max:255',
-            //'fire_department' => 'sometimes|required|string|max:255',
-            //'is_admin' => 'sometimes|required|boolean|max:255',
-            //'password' => 'sometimes|required|string|min:6|confirmed',
+            
         ];
     }
 }

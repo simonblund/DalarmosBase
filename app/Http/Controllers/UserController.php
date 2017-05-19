@@ -18,7 +18,7 @@ class UserController extends Controller
     protected function selfedit(StoreUserSelfUpdate $request, $id)
     {
         $user = User::find($id);
-        
+        dd($request);
         $user->update([
             //'first_name' => $data['first_name'],
             //'last_name' => $data['last_name'],
