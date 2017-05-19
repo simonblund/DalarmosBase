@@ -22,4 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/self-edit', function (){
     return view('settings.selfedit');
 });
-Route::patch('/user/edit/{id}', 'Auth\RegisterController@selfedit');
+Route::patch('/user/{id}/edit', 'UserController@selfedit');

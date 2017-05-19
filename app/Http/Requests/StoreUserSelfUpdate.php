@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\User;
+
 
 class StoreUserSelfUpdate extends FormRequest
 {
@@ -13,7 +16,9 @@ class StoreUserSelfUpdate extends FormRequest
      */
     public function authorize()
     {
-        return true;
+            $user = User::find($this->route('id'));
+
+            return $this->user()->id == $user->id;
     }
 
     /**
@@ -23,9 +28,16 @@ class StoreUserSelfUpdate extends FormRequest
      */
     public function rules()
     {
+        $user = User::find($this->route('id'));
         return [
                 
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id),
+                ],
             
             'driverslicence' => 'required|string|max:10',
             'primary_phone' => 'required|string|max:255',

@@ -63,16 +63,12 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">Kvitterade</div>
+                <div class="panel-heading">Redigera dina uppgifter</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="/user/edit/{{Auth::user()->id}}">
+                    <form class="form-horizontal" role="form" method="POST" action="/user/{{Auth::user()->id}}/edit">
                         {{ csrf_field() }}
                         {{ method_field('PATCH') }}
-
-
-
-
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
@@ -83,22 +79,6 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
-
-                        <div class="form-group{{ $errors->has('driverslicence') ? ' has-error' : '' }}">
-                            <label for="driverslicence" class="col-md-4 control-label">Körkort</label>
-
-                            <div class="col-md-6">
-                                <input id="driverslicence" type="text" class="form-control" name="driverslicence" value="{{ old('driverslicence') }}" required autofocus>
-
-                                @if ($errors->has('driverslicence'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('driverslicence') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -221,7 +201,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Spara
                                 </button>
                             </div>
                         </div>
