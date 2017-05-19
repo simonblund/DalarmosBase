@@ -52,4 +52,33 @@ class UserController extends Controller
         $user->save();
         return $user;
     }
+
+     /**
+     * When a user updates it's own password.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function updatePassword(Request $request, $id)
+    {
+
+        $this->validate(request(), [
+            'old_password' => [
+                'required',
+                'string',
+                'min:6',
+            ],
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        $user = User::find($id);
+        if ($user == Auth::user() && $user->password == bcrypt($request->old_password))
+        {
+        $user->update([
+            'password' => bcrypt($request['password']),
+        ]);
+        $user->save();
+        }
+
+        return back()->with('status', 'Lösenordet uppdaterades');;
+    }
 }

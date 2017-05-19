@@ -216,6 +216,77 @@
                 </div>
             </div>
         </div>
+        
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Byt lösenord
+                </div>
+
+                <div class="panel-body">
+                    @if( Session::has('status'))
+                   
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('status') }}
+                    </div>
+                    
+                    @endif
+                   
+                   <form class="form-horizontal" role="form" method="POST" action="/user/{{Auth::user()->id}}/password">
+                        {{ csrf_field() }}
+                        {{ method_field('PATCH') }}
+
+                        <div class="form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
+                            <label for="old_password" class="col-md-4 control-label">Gammalt lösenord</label>
+
+                            <div class="col-md-6">
+                                <input id="old_password" type="password" class="form-control" name="old_password" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Nytt lösenord</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label for="password_confirmation" class="col-md-4 control-label">En gång till</label>
+
+                            <div class="col-md-6">
+                                <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Spara
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                       <ul>
+                           @foreach($errors->all() as $error)
+                           <li> {{$error}}</li>
+                           @endforeach
+                       </ul>
+                   </div>
+                   </form>
+
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 @endsection

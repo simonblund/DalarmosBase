@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/self-edit', 'UserController@edit');
 
 Route::patch('/user/{id}/edit', 'UserController@update');
+Route::patch('/user/{id}/password', 'UserController@updatePassword');
