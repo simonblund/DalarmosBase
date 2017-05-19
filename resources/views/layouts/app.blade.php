@@ -61,11 +61,14 @@
                                 </a>
 
                                 <ul class="dropdown-menu dropdown" role="menu">
+                                    <li>
+                                        <a href="/self-edit">Personliga inställningar</a>
+                                    </li>
                                     <li class="text-primary-color">
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Logga ut
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

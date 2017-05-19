@@ -23,3 +23,6 @@ Route::get('/self-edit', 'UserController@edit');
 
 Route::patch('/user/{id}/edit', 'UserController@update');
 Route::patch('/user/{id}/password', 'UserController@updatePassword');
+
+Route::get('/admin/roles', 'roleController@index');
+Route::post('/admin/roles/new', 'roleController@store');

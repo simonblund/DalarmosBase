@@ -79,6 +79,6 @@ class UserController extends Controller
         $user->save();
         }
 
-        return back()->with('status', 'Lösenordet uppdaterades');;
+        return back()->with('status', 'Lösenordet uppdaterades');
     }
 }
