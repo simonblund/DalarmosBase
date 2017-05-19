@@ -3,22 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserSelfUpdate;
 
 
 class UserController extends Controller
 {
+    /**
+     * When a user wants to see and edit it's own information.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function edit()
+    {
+        return view('settings.selfedit');
+    }
+
      /**
      * When a user edits it's own information.
      *
      * @param  array  $data
      * @return User
      */
-    protected function selfedit(StoreUserSelfUpdate $request, $id)
+    protected function update(StoreUserSelfUpdate $request, $id)
     {
         $user = User::find($id);
-        dd($request);
         $user->update([
             //'first_name' => $data['first_name'],
             //'last_name' => $data['last_name'],

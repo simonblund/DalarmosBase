@@ -74,7 +74,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -88,7 +88,7 @@
                             <label for="primary_phone" class="col-md-4 control-label">Primär telefonnummer (+358401234567)</label>
 
                             <div class="col-md-6">
-                                <input id="primary_phone" type="text" class="form-control" name="primary_phone" value="{{ old('primary_phone') }}" required autofocus>
+                                <input id="primary_phone" type="text" class="form-control" name="primary_phone" value="{{ Auth::user()->primary_phone }}" required autofocus>
 
                                 @if ($errors->has('primary_phone'))
                                     <span class="help-block">
@@ -102,7 +102,7 @@
                             <label for="secondary_phone" class="col-md-4 control-label">Sekundär telefonnummer (+358401234567)</label>
 
                             <div class="col-md-6">
-                                <input id="secondary_phone" type="text" class="form-control" name="secondary_phone" value="{{ old('secondary_phone') }}" autofocus>
+                                <input id="secondary_phone" type="text" class="form-control" name="secondary_phone" value="{{ Auth::user()->secondary_phone }}" autofocus>
 
                                 @if ($errors->has('secondary_phone'))
                                     <span class="help-block">
@@ -116,7 +116,7 @@
                             <label for="telegram_id" class="col-md-4 control-label">Telegram</label>
 
                             <div class="col-md-6">
-                                <input id="telegram_id" type="text" class="form-control" name="telegram_id" value="{{ old('telegram_id') }}" autofocus>
+                                <input id="telegram_id" type="text" class="form-control" name="telegram_id" value="{{ Auth::user()->telegram_id }}" autofocus>
 
                                 @if ($errors->has('telegram_id'))
                                     <span class="help-block">
@@ -130,7 +130,7 @@
                             <label for="street_address" class="col-md-4 control-label">Gatuadress</label>
 
                             <div class="col-md-6">
-                                <input id="street_address" type="text" class="form-control" name="street_address" value="{{ old('street_address') }}" autofocus>
+                                <input id="street_address" type="text" class="form-control" name="street_address" value="{{ Auth::user()->street_address }}" autofocus>
 
                                 @if ($errors->has('street_address'))
                                     <span class="help-block">
@@ -144,7 +144,7 @@
                             <label for="street_adress" class="col-md-4 control-label">Stad</label>
 
                             <div class="col-md-6">
-                                <input id="city_address" type="text" class="form-control" name="city_address" value="{{ old('city_address') }}" autofocus>
+                                <input id="city_address" type="text" class="form-control" name="city_address" value="{{ Auth::user()->city_address }}" autofocus>
 
                                 @if ($errors->has('city_address'))
                                     <span class="help-block">
@@ -158,7 +158,7 @@
                             <label for="street_adress" class="col-md-4 control-label">Postnummer</label>
 
                             <div class="col-md-6">
-                                <input id="postcode_address" type="text" class="form-control" name="postcode_address" value="{{ old('postcode_address') }}" autofocus>
+                                <input id="postcode_address" type="text" class="form-control" name="postcode_address" value="{{ Auth::user()->postcode_address }}" autofocus>
 
                                 @if ($errors->has('postcode_address'))
                                     <span class="help-block">
@@ -172,7 +172,7 @@
                             <label for="country_address" class="col-md-4 control-label">Land</label>
 
                             <div class="col-md-6">
-                                <input id="country_address" type="text" class="form-control" name="country_address" value="{{ old('country_address') }}" autofocus>
+                                <input id="country_address" type="text" class="form-control" name="country_address" value="{{ Auth::user()->country_address }}" autofocus>
 
                                 @if ($errors->has('country_address'))
                                     <span class="help-block">
@@ -186,7 +186,7 @@
                             <label for="birthday" class="col-md-4 control-label">Födelsedag</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}" autofocus>
+                                <input id="birthday" type="date" class="form-control" name="birthday" value="{{ Auth::user()->birthday }}" autofocus>
 
                                 @if ($errors->has('birthday'))
                                     <span class="help-block">

@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/self-edit', function (){
-    return view('settings.selfedit');
-});
-Route::patch('/user/{id}/edit', 'UserController@selfedit');
+Route::get('/self-edit', 'UserController@edit');
+
+Route::patch('/user/{id}/edit', 'UserController@update');
