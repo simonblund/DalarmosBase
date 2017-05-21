@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class roleController extends Controller
@@ -15,7 +16,8 @@ class roleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('admin.roles')->with('roles', $roles);
+        $users = User::all();
+        return view('admin.roles')->with('roles', $roles)->with('users', $users);
     }
 
     /**
@@ -93,5 +95,13 @@ class roleController extends Controller
     public function destroy(Role $role)
     {
         //
+    }
+
+    public function addUser(Request $request, $id)
+    {
+        $role = Role::find($id);
+        $role->role_owners()->toggle($request->role_owners);
+
+        return back()->with('status', 'Rollinnehav ändrat');
     }
 }

@@ -26,3 +26,5 @@ Route::patch('/user/{id}/password', 'UserController@updatePassword');
 
 Route::get('/admin/roles', 'roleController@index');
 Route::post('/admin/roles/new', 'roleController@store');
+
+Route::post('/admin/roles/{id}/add', 'roleController@addUser');
