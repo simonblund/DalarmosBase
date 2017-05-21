@@ -55,6 +55,21 @@
                             <li class="nav-item text-primary-color"><a href="{{ route('login') }}">Login</a></li>
                             <li class="nav-item text-primary-color"><a href="{{ route('register') }}">Register</a></li>
                         @else
+                        @if (Auth::user()->isAdmin())
+                            <li class="nav-item dropdown ">
+                                <a href="#" class="dropdown-toggle text-primary-color" data-toggle="dropdown" role="button"  aria-expanded="false">
+                                     Administration <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown" role="menu">
+                                    <li>
+                                        <a href="/admin/roles">Roller</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            @endif
+
                             <li class="nav-item dropdown ">
                                 <a href="#" class="dropdown-toggle text-primary-color" data-toggle="dropdown" role="button"  aria-expanded="false">
                                      {{ Auth::user()->first_name }} <span class="caret"></span>
