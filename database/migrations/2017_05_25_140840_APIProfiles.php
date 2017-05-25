@@ -14,8 +14,8 @@ class APIProfiles extends Migration
     public function up()
     {
         Schema::create('api_profiles', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->string('name');
+            $table->increments('id');
+            $table->string('name')->unique();
             $table->string('password');
             $table->string('owner_id');
             $table->string('APIType_id');
