@@ -40,8 +40,163 @@
 
                 </div>
             </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                Skapa ny api-typ
+                </div>
+
+                <div class="panel-body">
+                   
+                   
+                   <form class="form-horizontal" role="form" method="POST" action="/admin/api-types/new">
+                        {{ csrf_field() }}
+                        {{ method_field('POST') }}
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">API-typnamn</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="" required>
+
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <table>
+                                <tr>
+                                    <th>Åtkomstpunkt</th>
+                                    <th>Create</th>
+                                    <th>Read</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                                <tr>
+                                    <td>Fordon</td>
+                                    <td><input type="checkbox" name="access_vehicles[]" value="1"></td>
+                                    <td><input type="checkbox" name="access_vehicles[]" value="2"></td>
+                                    <td><input type="checkbox" name="access_vehicles[]" value="3"></td>
+                                    <td><input type="checkbox" name="access_vehicles[]" value="4"></td>
+                                </tr>
+                            </table>
+                            <div class="form-group">
+                                        <label for="access_vehicles[]">Fordon</label>
+                                        <div class="checkbox">
+                                            <label>
+                                             Göra ny
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="checkbox" name="access_vehicles[]" value="2"> Läsa
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="checkbox" name="access_vehicles[]" value="3"> Redigera
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="checkbox" name="access_vehicles[]" value="4"> Ta bort
+                                            </label>
+                                        </div>
+                                    
+                            </div>
+                        </div>
+                    
+
+                        <div class="form-group{{ $errors->has('APIType_id') ? ' has-error' : '' }}">
+                            <label for="expiration_time" class="col-md-4 control-label">APIType_id</label>
+
+                            <div class="col-md-6">
+                                <input id="APIType_id" type="numbers" class="form-control" name="APIType_id" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">email</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('primary_phone') ? ' has-error' : '' }}">
+                            <label for="primary_phone" class="col-md-4 control-label">primary_phone</label>
+
+                            <div class="col-md-6">
+                                <input id="primary_phone" type="phone" class="form-control" name="primary_phone" value="" required>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('fire_department') ? ' has-error' : '' }}">
+                            <label for="fire_department" class="col-md-4 control-label">Brandkår</label>
+
+                            <div class="col-md-6">
+                                <input id="fire_department" type="text" class="form-control" name="fire_department" value="{{ env('FIRE_DEPARTMENT') }}" autofocus>
+
+                                @if ($errors->has('fire_department'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fire_department') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Spara
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                       <ul>
+                           @foreach($errors->all() as $error)
+                           <li> {{$error}}</li>
+                           @endforeach
+                       </ul>
+                   </div>
+                   </form>
+
+
+                </div>
+            </div>
+
             
         </div>
+
+        
         
         <div class="col-md-4">
             <div class="panel panel-default">
@@ -162,6 +317,8 @@
                 </div>
             </div>
         </div>
+
+        
 
     </div>
 </div>
