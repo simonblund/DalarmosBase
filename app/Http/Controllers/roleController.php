@@ -16,7 +16,7 @@ class roleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        $users = User::all();
+        $users = User::all()->where('is_API', 0);
         return view('admin.roles')->with('roles', $roles)->with('users', $users);
     }
 

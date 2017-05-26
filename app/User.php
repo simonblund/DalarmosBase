@@ -15,7 +15,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'vacancy', 'driverslicence', 'primary_phone', 'secondary_phone', 'telegram_id', 'street_address', 'city_address', 'postcode_address', 'country_address', 'birthday', 'fire_department', 'is_admin', 'password',
+        'first_name', 'last_name', 'email', 'vacancy', 'driverslicence', 'primary_phone', 'secondary_phone', 'telegram_id', 
+        'street_address', 'city_address', 'postcode_address', 'country_address', 'birthday', 
+        'fire_department', 'is_admin', 'password',
+        'api_username', 'owner_id', 'APIType_id', 'is_API',
     ];
 
     /**
