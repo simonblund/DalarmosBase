@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserSelfUpdate;
+use App\ApiType;
 
 
 class UserController extends Controller
@@ -92,7 +93,9 @@ class UserController extends Controller
     protected function createAPIuser()
     {
         $api_users = User::all()->where('is_API', 1);
-        return view('admin.api-users')->with('api_users', $api_users);
+        $admins = User::all()->where('is_admin', 1);
+        $api_types = ApiType::all();
+        return view('admin.api-users')->with('api_users', $api_users)->with('admins', $admins)->with('api_types', $api_types);
     }
      /**
      * When a new API user is created.

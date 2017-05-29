@@ -65,6 +65,9 @@
                                     <li>
                                         <a href="/admin/roles">Roller</a>
                                     </li>
+                                    <li>
+                                        <a href="/admin/api-users">API-användare</a>
+                                    </li>
                                     
                                 </ul>
                             </li>

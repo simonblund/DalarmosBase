@@ -37,25 +37,33 @@ class ApiTypeController extends Controller
     {
         $this->validate(request(), [
             'name' => 'required|string|max:255',
-            'access_vehicles' => 'required|string|max:255',
-            'access_vehicles_incident' => 'required|string|max:255',
-            'access_users' => 'required|string|max:255',
-            'access_under_way' => 'required|string|max:255',
-            'access_incident' => 'required|string|max:255',
-            'access_incident_report' => 'required|string|max:255',
+            'access_vehicles' => 'required|array|max:255',
+            'access_vehicles_incident' => 'required|array|max:255',
+            'access_users' => 'required|array|max:255',
+            'access_under_way' => 'required|array|max:255',
+            'access_incident' => 'required|array|max:255',
+            'access_incident_report' => 'required|array|max:255',
         ]);
 
+        $access_vehiclesString = implode(",", $request->get('access_vehicles'));
+        $access_vehicles_incidentString = implode(",", $request->get('access_vehicles_incident'));
+        $access_usersString = implode(",", $request->get('access_users'));
+        $access_under_wayString = implode(",", $request->get('access_under_way'));
+        $access_incidentString = implode(",", $request->get('access_incident'));
+        $access_incident_reportString = implode(",", $request->get('access_incident_report'));
+        
+        
         $apitype = ApiType::create([
             'name' => $request['name'],
-            'access_vehicles' => $request['access_vehicles'],
-            'access_vehicles_incident' => $request['access_vehicles_incident'],
-            'access_users' => $request['access_users'],
-            'access_under_way' => $request['access_under_way'],
-            'access_incident' => $request['access_incident'],
-            'access_incident_report' => $request['access_incident_report'],
+            'access_vehicles' => $access_vehiclesString,
+            'access_vehicles_incident' => $access_vehicles_incidentString,
+            'access_users' => $access_usersString,
+            'access_under_way' => $access_under_wayString,
+            'access_incident' => $access_incidentString,
+            'access_incident_report' => $access_incident_reportString,
         ]);
-
         return $apitype;
+        
     }
 
     /**

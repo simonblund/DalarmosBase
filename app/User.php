@@ -40,5 +40,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
+    public function apitypes()
+    {
+        return $this->belongsTo('App\ApiType', 'APIType_id');
+    }
+
     
 }

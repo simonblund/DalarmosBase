@@ -16,12 +16,12 @@ class APITypes extends Migration
         Schema::create('api_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->string('access_vehicles');
-            $table->string('access_vehicles_incident');
-            $table->string('access_users');
-            $table->string('access_under_way');
-            $table->string('access_incident');
-            $table->string('access_incident_report');
+            $table->string('access_vehicles')->nullable();
+            $table->string('access_vehicles_incident')->nullable();
+            $table->string('access_users')->nullable();
+            $table->string('access_under_way')->nullable();
+            $table->string('access_incident')->nullable();
+            $table->string('access_incident_report')->nullable();
             
             $table->timestamps();
         });
