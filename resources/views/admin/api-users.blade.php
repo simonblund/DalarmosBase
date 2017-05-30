@@ -27,8 +27,8 @@
                         </tr>
                         @foreach($api_users as $api_user)
                         <tr>
-                            <td>{{ $api_user->api_username }}</td>
-                            <td>{{ $api_user->apitypes->name }}</td>
+                            <td>{{ $api_user->name }}</td>
+                            <td>{{ $api_user->api_types->name }}</td>
                             <td>{{ $api_user->owner_id }}</td>
                         </tr>
                         @endforeach
@@ -156,11 +156,11 @@
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
 
-                        <div class="form-group{{ $errors->has('api_username') ? ' has-error' : '' }}">
-                            <label for="api_username" class="col-md-4 control-label">API-namn</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">API-namn</label>
 
                             <div class="col-md-6">
-                                <input id="api_username" type="text" class="form-control" name="api_username" value="" required>
+                                <input id="name" type="text" class="form-control" name="name" value="" required>
 
                                 
                             </div>

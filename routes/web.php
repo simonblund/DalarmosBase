@@ -29,7 +29,7 @@ Route::post('/admin/roles/new', 'roleController@store');
 
 Route::post('/admin/roles/{id}/add', 'roleController@addUser');
 
-Route::get('/admin/api-users', 'UserController@createAPIuser');
-Route::post('/admin/api-users/new', 'UserController@storeAPIuser');
+Route::get('/admin/api-users', 'Auth\ApiUserController@create');
+Route::post('/admin/api-users/new', 'Auth\ApiUserController@store');
 
 Route::post('/admin/api-types/new', 'ApiTypeController@store');
