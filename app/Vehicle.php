@@ -8,7 +8,7 @@ class Vehicle extends Model
 {
     protected $fillable = [
         'name', 'shortcode', 'phone',  'seats',  'priority',  'drivers_license',  
-        'description',  'vehicle_registration',  'year',
+        'description',  'vehicle_registration',  'year', 'km',
     ];
 
     public function role_owners()

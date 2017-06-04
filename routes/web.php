@@ -33,3 +33,6 @@ Route::get('/admin/api-users', 'Auth\ApiUserController@create');
 Route::post('/admin/api-users/new', 'Auth\ApiUserController@store');
 
 Route::post('/admin/api-types/new', 'ApiTypeController@store');
+
+Route::get('/admin/vehicles', 'vehicleController@index');
+Route::post('/admin/vehicles/new', 'vehicleController@store');

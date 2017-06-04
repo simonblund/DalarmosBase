@@ -18,11 +18,12 @@ class Vehicles extends Migration
             $table->string('name');
             $table->string('shortcode');
             $table->string('phone');
-            $table->integer('seats');
-            $table->integer('priority');
+            $table->integer('seats')->nullable();
+            $table->integer('priority')->nullable();
             $table->string('drivers_license');
             $table->string('description')->nullable();
             $table->string('vehicle_registration')->nullable();
+            $table->string('km')->nullable();
             $table->string('year')->nullable();
 
             $table->timestamps();

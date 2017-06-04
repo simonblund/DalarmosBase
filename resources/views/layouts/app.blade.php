@@ -68,6 +68,9 @@
                                     <li>
                                         <a href="/admin/api-users">API-användare</a>
                                     </li>
+                                    <li>
+                                        <a href="/admin/vehicles">Fordon</a>
+                                    </li>
                                     
                                 </ul>
                             </li>
