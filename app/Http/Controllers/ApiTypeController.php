@@ -37,12 +37,12 @@ class ApiTypeController extends Controller
     {
         $this->validate(request(), [
             'name' => 'required|string|max:255',
-            'access_vehicles' => 'required|array|max:255',
-            'access_vehicles_incident' => 'required|array|max:255',
-            'access_users' => 'required|array|max:255',
-            'access_under_way' => 'required|array|max:255',
-            'access_incident' => 'required|array|max:255',
-            'access_incident_report' => 'required|array|max:255',
+            'access_vehicles' => 'array|max:255',
+            'access_vehicles_incident' => 'array|max:255',
+            'access_users' => 'array|max:255',
+            'access_under_way' => 'array|max:255',
+            'access_incident' => 'array|max:255',
+            'access_incident_report' => 'array|max:255',
         ]);
 
         $access_vehiclesString = implode(",", $request->get('access_vehicles'));
