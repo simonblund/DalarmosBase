@@ -30,8 +30,14 @@
                         <tr>
                             <td>{{ $api_user->name }}</td>
                             <td>{{ $api_user->api_types->name }}</td>
-                            <td>{{ $api_user->vehicle->name }}</td>
-                            <td>{{ $api_user->owner->vacancy }}</td>
+                            @isset($api_user->vehicle_id)
+                            <td>{{ $api_user->vehicle->shortcode }}</td>
+                            @endisset
+                            @empty($api_user->vehicle_id)
+                            <td>-</td>
+                            @endempty
+                            <td>{{ $api_user->owner->first_name }}</td>
+                            
                         </tr>
                         @endforeach
                         
