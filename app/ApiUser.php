@@ -33,5 +33,13 @@ class ApiUser extends Authenticatable
     {
         return $this->belongsTo('App\ApiType', 'APIType_id');
     }
+    public function owner()
+    {
+        return $this->belongsTo('App\User', 'owner_id');
+    }
+    public function vehicle()
+    {
+        return $this->belongsTo('App\Vehicle', 'vehicle_id');
+    }
 
 }

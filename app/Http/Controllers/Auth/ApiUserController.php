@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\ApiUser;
 use App\ApiType;
+use App\Vehicle;
 use App\User;
 
 
@@ -23,10 +24,11 @@ class ApiUserController extends Controller
      */
     protected function create()
     {
-        $api_users = ApiUser::all();
+        $api_users = ApiUser::with('vehicle', 'api_types', 'owner')->get();
+        $vehicles = Vehicle::all();
         $admins = User::all()->where('is_admin', 1);
         $api_types = ApiType::all();
-        return view('admin.api-users')->with('api_users', $api_users)->with('admins', $admins)->with('api_types', $api_types);
+        return view('admin.api-users')->with('api_users', $api_users)->with('admins', $admins)->with('api_types', $api_types)->with('vehicles', $vehicles);
     }
 
     /**

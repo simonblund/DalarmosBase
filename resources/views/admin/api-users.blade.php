@@ -23,13 +23,15 @@
                         <tr>
                             <th>API namn</th>
                             <th>Typ</th>
+                            <th>Relaterat fordon</th>
                             <th>Ägare</th>
                         </tr>
                         @foreach($api_users as $api_user)
                         <tr>
                             <td>{{ $api_user->name }}</td>
                             <td>{{ $api_user->api_types->name }}</td>
-                            <td>{{ $api_user->owner_id }}</td>
+                            <td>{{ $api_user->vehicle->name }}</td>
+                            <td>{{ $api_user->owner->vacancy }}</td>
                         </tr>
                         @endforeach
                         
@@ -186,6 +188,21 @@
                                 <select class="form-control" name="APIType_id">
                                     @foreach($api_types as $api_type)
                                     <option value="{{$api_type->id}}">{{$api_type->name}}</option>
+                                    @endforeach
+                                </select>
+                                
+                           
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('vehicle_id') ? ' has-error' : '' }}">
+                            <label for="expiration_time" class="col-md-4 control-label">Om fordon, vilket</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="vehicle_id">
+                                    <option value="">Inte fordon</option>
+                                    @foreach($vehicles as $veh)
+                                    <option value="{{$veh->id}}">{{$veh->shortcode}}</option>
                                     @endforeach
                                 </select>
                                 

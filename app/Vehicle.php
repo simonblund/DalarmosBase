@@ -11,8 +11,8 @@ class Vehicle extends Model
         'description',  'vehicle_registration',  'year', 'km',
     ];
 
-    public function role_owners()
+    public function apiuser()
     {
-        return $this->belongsToOne('App\ApiUser');
+        return $this->hasOne('App\ApiUser');
     }
 }
