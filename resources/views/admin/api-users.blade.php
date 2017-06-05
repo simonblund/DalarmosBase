@@ -36,7 +36,7 @@
                             @empty($api_user->vehicle_id)
                             <td>-</td>
                             @endempty
-                            <td>{{ $api_user->owner->first_name }}</td>
+                            <td>{{ $api_user->owner->vacancy }}</td>
                             
                         </tr>
                         @endforeach
@@ -167,7 +167,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">API-namn</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="name" type="text" class="form-control" name="name" value="" required>
 
                                 
@@ -177,7 +177,7 @@
                         <div class="form-group{{ $errors->has('owner_id') ? ' has-error' : '' }}">
                             <label for="owner_id" class="col-md-4 control-label">Ägare</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <select class="form-control" name="owner_id">
                                     @foreach($admins as $admin)
                                     <option value="{{$admin->id}}">{{$admin->first_name}} {{$admin->last_name}}</option>
@@ -190,7 +190,7 @@
                         <div class="form-group{{ $errors->has('APIType_id') ? ' has-error' : '' }}">
                             <label for="expiration_time" class="col-md-4 control-label">API-typ</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <select class="form-control" name="APIType_id">
                                     @foreach($api_types as $api_type)
                                     <option value="{{$api_type->id}}">{{$api_type->name}}</option>
@@ -204,7 +204,7 @@
                         <div class="form-group{{ $errors->has('vehicle_id') ? ' has-error' : '' }}">
                             <label for="expiration_time" class="col-md-4 control-label">Om fordon, vilket</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <select class="form-control" name="vehicle_id">
                                     <option value="">Inte fordon</option>
                                     @foreach($vehicles as $veh)
@@ -219,7 +219,7 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-post</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="email" type="email" class="form-control" name="email" value="" required>
 
                                 
@@ -229,7 +229,7 @@
                         <div class="form-group{{ $errors->has('primary_phone') ? ' has-error' : '' }}">
                             <label for="primary_phone" class="col-md-4 control-label">Telefonnummer</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="primary_phone" type="phone" class="form-control" name="primary_phone" value="" required>
 
                                 
@@ -239,7 +239,7 @@
                         <div class="form-group{{ $errors->has('fire_department') ? ' has-error' : '' }}">
                             <label for="fire_department" class="col-md-4 control-label">Brandkår</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="fire_department" type="text" class="form-control" name="fire_department" value="{{ env('FIRE_DEPARTMENT') }}" autofocus>
 
                                 @if ($errors->has('fire_department'))
@@ -253,7 +253,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Lösenord</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -267,13 +267,13 @@
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Bekräfta lösenord</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-7 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Spara
                                 </button>
