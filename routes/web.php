@@ -24,15 +24,24 @@ Route::get('/self-edit', 'UserController@edit');
 Route::patch('/user/{id}/edit', 'UserController@update');
 Route::patch('/user/{id}/password', 'UserController@updatePassword');
 
-Route::get('/admin/roles', 'roleController@index');
-Route::post('/admin/roles/new', 'roleController@store');
 
-Route::post('/admin/roles/{id}/add', 'roleController@addUser');
 
-Route::get('/admin/api-users', 'Auth\ApiUserController@create');
-Route::post('/admin/api-users/new', 'Auth\ApiUserController@store');
+/*
+|--------------------------------------------------------------------------
+| ADMIN ROUTES
+|--------------------------------------------------------------------------
+*/
 
-Route::post('/admin/api-types/new', 'ApiTypeController@store');
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/roles', 'roleController@index');
+    Route::post('/admin/roles/new', 'roleController@store');
+    Route::post('/admin/roles/{id}/add', 'roleController@addUser');
 
-Route::get('/admin/vehicles', 'vehicleController@index');
-Route::post('/admin/vehicles/new', 'vehicleController@store');
+    Route::get('/admin/api-users', 'Auth\ApiUserController@create');
+    Route::post('/admin/api-users/new', 'Auth\ApiUserController@store');
+
+    Route::post('/admin/api-types/new', 'ApiTypeController@store');
+
+    Route::get('/admin/vehicles', 'vehicleController@index');
+    Route::post('/admin/vehicles/new', 'vehicleController@store');
+});
