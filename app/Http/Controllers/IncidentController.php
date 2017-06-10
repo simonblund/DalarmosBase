@@ -14,8 +14,8 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        $incidents = Incident::all();
-        return view('home')->with('incidents', $incidents);
+        $incident = Incident::all()->last();
+        return view('home')->with('incident', $incident);
     }
 
     /**

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Incident extends Model
 {
     protected $fillable = [
-        'active', 'message', 'address',  'position',  'type',  'area',  
+        'active', 'message', 'address',  'pos-lan', 'pos-lon',  'type',  'area',  
         'details',  'time',
     ];
 }

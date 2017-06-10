@@ -18,7 +18,8 @@ class Incidents extends Migration
             $table->string('active')->nullable();
             $table->string('message')->nullable();
             $table->string('address')->nullable();
-            $table->string('position')->nullable();
+            $table->string('pos-lan')->nullable();
+            $table->string('pos-lon')->nullable();
             $table->string('type')->nullable();
             $table->string('area')->nullable();
             $table->string('details')->nullable();

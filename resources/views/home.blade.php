@@ -5,10 +5,11 @@
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-default">
-                <div class="panel-heading">Grundlarm</div>
+                <div class="panel-heading">{{ $incident->type }} | {{ $incident->time }}</div>
 
                 <div class="panel-body">
-                    Automatalarm; Getagården
+                    {{ $incident->message }}
+                    {{ $incident->details }}
                 </div>
             </div>
             <div class="panel panel-default">
