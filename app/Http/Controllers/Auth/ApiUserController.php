@@ -47,7 +47,7 @@ class ApiUserController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'owner_id' => 'required|string|max:255',
             'APIType_id' => 'required|string|max:255',
-            'vehicle_id' => 'string|max:255',
+            
         ]);
 
         
