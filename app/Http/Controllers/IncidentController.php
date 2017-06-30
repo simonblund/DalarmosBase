@@ -40,8 +40,7 @@ class IncidentController extends Controller
             'active' => 'string',
             'message' => 'string',
             'address' => 'string',
-            'pos-lan' => 'string',
-            'pos-lon' => 'string',
+
             'type' => 'string',
             'area' => 'string',
             'details' => 'string',
@@ -50,8 +49,7 @@ class IncidentController extends Controller
         Incident::create([
             'message' => $request['message'],
             'address' => $request['address'],
-            'pos-lan' => $request['pos-lan'],
-            'pos-lon' => $request['pos-lon'],
+
             'type' => $request['type'],
             'area' => $request['area'],
             'details' => $request['details'],
