@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api_user')->prefix('v1')->group(function () {
+Route::middleware('auth:api')->prefix('v1')->group(function () {
 
 Route::get('/user', function () {return "fisk";});
 

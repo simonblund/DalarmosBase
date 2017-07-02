@@ -14,20 +14,11 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        $incidents = Incident::all();
-        return $incidents;
+        $incident = Incident::all()->last();
+        return view('home')->with('incident', $incident);
     }
 
-    /**
-     * Return the homeview.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function home()
-    {
-         $incident = Incident::all()->last();
-        return view$incident;
-    }
+
     /**
      * Show the form for creating a new resource.
      *
