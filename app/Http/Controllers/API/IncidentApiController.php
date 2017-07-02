@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Incident;
 
-class IncidentController extends Controller
+class IncidentApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,20 +15,9 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        $incidents = Incident::all();
-        return $incidents;
+        return Incident::all();
     }
 
-    /**
-     * Return the homeview.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function home()
-    {
-         $incident = Incident::all()->last();
-        return view$incident;
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +25,7 @@ class IncidentController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -56,7 +46,7 @@ class IncidentController extends Controller
             'details' => 'string',
             'time' => 'string',
         ]);
-        Incident::create([
+        $incident = Incident::create([
             'message' => $request['message'],
             'address' => $request['address'],
 
@@ -66,27 +56,27 @@ class IncidentController extends Controller
             'time' => $request['time'],
             
         ]);
-        return back()->with('status', 'Larm skapat');
+        return $incident;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show($id)
     {
-        //
+        return Incident::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
         //
     }
@@ -95,23 +85,42 @@ class IncidentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(), [
+            'active' => 'string',
+            'message' => 'string',
+            'address' => 'string',
+
+            'type' => 'string',
+            'area' => 'string',
+            'details' => 'string',
+            'time' => 'string',
+        ]);
+        $incident = Incident::find($id)->update([
+            'message' => $request['message'],
+            'address' => $request['address'],
+
+            'type' => $request['type'],
+            'area' => $request['area'],
+            'details' => $request['details'],
+            'time' => $request['time'],
+            
+        ]);
+        return $incident;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Role  $role
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
         //
     }
-
 }
