@@ -26,6 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Passport::routes();
+        Passport::tokensCan([
+            'get-incidents' => 'See incidents',
+            'post-incidents' => 'Add incidents',
+            'update-incidents' => 'Edit incidents',
+            'delete-incidents' => 'Delete incidents',
+            'check-status' => 'Check order status',
+        ]);
 
         //
     }

@@ -12,12 +12,13 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('v1/incidents', 'API\IncidentApiController@index')->middleware('auth:api','scope:get-incidents');
 Route::middleware('auth:api')->prefix('v1')->group(function () {
 
 Route::get('/user', function () {return "fisk";});
 
-//Incidents
-Route::get('/incidents', 'API\IncidentApiController@index');
+//Incidents 
+
 Route::post('/incident/new', 'API\IncidentApiController@store');
 
 

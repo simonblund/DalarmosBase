@@ -45,10 +45,12 @@ return [
             'driver' => 'passport',
             'provider' => 'users',
         ],
+        
         'api_user' => [
             'driver' => 'passport',
             'provider' => 'api_users',
         ],
+        
         'api_user_web' => [
             'driver' => 'session',
             'provider' => 'api_users',
