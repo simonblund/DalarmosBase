@@ -39,7 +39,16 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        // New Client-Credentials
+        $this->mapClientCredentialRoutes();
+    }
+
+    protected function mapClientCredentialRoutes()
+    {
+        Route::prefix('api') // I still want /api/ urls
+            ->middleware('client_credentials') // new middleware I'll set up in a bit
+            ->namespace($this->namespace)
+            ->group(base_path('routes/client_credentials.php')); // referencing my new routes file
     }
 
     /**

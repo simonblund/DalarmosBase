@@ -41,6 +41,12 @@ class Kernel extends HttpKernel
             'bindings',
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
         ],
+        // my new middleware group
+        'client_credentials' => [
+            \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
+            'throttle:60,1',
+            'bindings',
+        ],
     ];
 
     /**
